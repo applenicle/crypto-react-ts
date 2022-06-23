@@ -7,7 +7,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import { Layout, Typography, Space } from 'antd';
 import { Home, News, Currencies, Exchanges } from './pages';
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="app">
       <div className="navbar">
@@ -18,7 +18,7 @@ function App() {
           <div className="routes">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/cryptocurrencies" element={<Currencies simplified={true} />} />
+              <Route path="/cryptocurrencies" element={<Currencies />} />
               <Route path="/crypto/:coinId" element={<Exchanges />} />
               <Route path="/news" element={<News />} />
             </Routes>
@@ -38,6 +38,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 export default App;

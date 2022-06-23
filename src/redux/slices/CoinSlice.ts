@@ -1,24 +1,24 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 type CoinSliceState = {
-  value: number;
+  searchValue: string;
 };
 
 const initialState: CoinSliceState = {
-  value: 0,
+  searchValue: '',
 };
 
 export const coinSlice = createSlice({
   name: 'crypto',
   initialState,
   reducers: {
-    fun: (state, action: PayloadAction<number>) => {
-      state.value += action.payload;
+    setSearchValue: (state, action: PayloadAction<string>) => {
+      state.searchValue += action.payload;
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { fun } = coinSlice.actions;
+export const { setSearchValue } = coinSlice.actions;
 
 export default coinSlice.reducer;

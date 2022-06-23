@@ -4,7 +4,6 @@ import { Row, Typography, Col, Statistic } from 'antd';
 import { Link } from 'react-router-dom';
 import { useGetCryptosQuery } from '../redux/cryptoApi';
 import { News, Currencies } from './';
-
 const { Title } = Typography;
 
 type DataProps = {
@@ -16,7 +15,7 @@ type DataProps = {
 };
 
 const Home: React.FC = () => {
-  const { data, isFetching } = useGetCryptosQuery(10);
+  const { data, isFetching } = useGetCryptosQuery(20);
   const globalStats: DataProps = data?.data?.stats;
   if (isFetching) return <>Loading</>;
   return (
@@ -43,7 +42,7 @@ const Home: React.FC = () => {
       </Row>
       <div className="home-heading-container">
         <Title level={2} className="home-title">
-          Top 10 Cryptocurrencies in the world
+          Top 20 Cryptocurrencies in the world
         </Title>
         <Title level={3} className="show-more">
           <Link to="/cryptocurrencies">Show more</Link>
