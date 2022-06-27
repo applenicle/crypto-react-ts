@@ -2,7 +2,7 @@ import React from 'react';
 import millify from 'millify';
 import { Row, Typography, Col, Statistic } from 'antd';
 import { Link } from 'react-router-dom';
-import { useGetCryptosQuery } from '../redux/cryptoApi';
+import { useGetCryptosQuery } from '../redux/api/cryptoApi';
 import { News, Currencies } from './';
 const { Title } = Typography;
 
@@ -16,6 +16,7 @@ type DataProps = {
 
 const Home: React.FC = () => {
   const { data, isFetching } = useGetCryptosQuery(20);
+
   const globalStats: DataProps = data?.data?.stats;
   if (isFetching) return <>Loading</>;
   return (
@@ -57,7 +58,7 @@ const Home: React.FC = () => {
           <Link to="/news">Show more</Link>
         </Title>
       </div>
-      <News />
+      <News simplified={true} />
     </>
   );
 };

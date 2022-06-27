@@ -2,7 +2,7 @@ import React from 'react';
 import millify from 'millify';
 import { Link } from 'react-router-dom';
 import { Row, Card, Col, Input } from 'antd';
-import { useGetCryptosQuery } from '../redux/cryptoApi';
+import { useGetCryptosQuery } from '../redux/api/cryptoApi';
 
 type CurrenciesProps = {
   simplified?: boolean;
@@ -52,7 +52,7 @@ const Currencies: React.FC<CurrenciesProps> = ({ simplified }) => {
             <Link to={`/crypto/${obj.uuid}`}>
               <Card
                 title={`${obj.rank}. ${obj.name}`}
-                extra={<img className="crypto-image" src={obj.iconUrl} />}
+                extra={<img className="crypto-image" src={obj.iconUrl} alt="icon" />}
                 hoverable>
                 <p>Price:{millify(+obj.price)}</p>
                 <p>Market Cap:{millify(+obj.marketCap)}</p>

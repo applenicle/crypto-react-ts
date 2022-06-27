@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-import coinReducer from './slices/CoinSlice';
-import { cryptoApi } from './cryptoApi';
+import { cryptoApi } from './api/cryptoApi';
+import { newsApi } from './api/newsApi';
 import { useDispatch } from 'react-redux';
 
 export const store = configureStore({
   reducer: {
-    coinReducer,
     [cryptoApi.reducerPath]: cryptoApi.reducer,
+    [newsApi.reducerPath]: newsApi.reducer,
   },
 });
 
